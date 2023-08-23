@@ -1,0 +1,22 @@
+## 创建数据库
+CREATE TABLE `model_compile_apply` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '序号',
+  `apply_time` timestamp NULL DEFAULT NULL COMMENT '申请时间',
+  `applicant` varchar(128) DEFAULT NULL COMMENT '申请人',
+  `status` varchar(128) DEFAULT NULL COMMENT '状态',
+  `name` varchar(128) DEFAULT NULL COMMENT '模型名称',
+  `type` varchar(128) DEFAULT NULL COMMENT '模型类别',
+  `onnx` varchar(128) DEFAULT NULL COMMENT 'ONNX',
+  `md5` varchar(128) DEFAULT NULL COMMENT '模型md5',
+  `nsp_cnt` int(11) DEFAULT NULL COMMENT 'NSP核数',
+  `compile_type` varchar(128) DEFAULT NULL COMMENT '编译类型',
+  `calib_dataset` varchar(128) DEFAULT NULL COMMENT '量化数据集',
+  `post_code` varchar(128) DEFAULT NULL COMMENT '后处理代码',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `create_by` int(11) unsigned DEFAULT NULL,
+  `update_by` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_apply_deleted_at` (`deleted_at`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='模型编译申请';
